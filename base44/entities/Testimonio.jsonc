@@ -1,0 +1,34 @@
+{
+  "name": "Testimonio",
+  "type": "object",
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "description": "Nombre del cliente"
+    },
+    "localidad": {
+      "type": "string",
+      "description": "Localidad del cliente"
+    },
+    "resumen": {
+      "type": "string",
+      "description": "Descripci\u00f3n breve del trabajo realizado"
+    },
+    "foto_jardin": {
+      "type": "string",
+      "description": "URL de la foto del jard\u00edn"
+    },
+    "valoracion": {
+      "type": "number",
+      "description": "Puntuaci\u00f3n del 1 al 5"
+    },
+    "orden": {
+      "type": "number",
+      "description": "Orden de aparici\u00f3n"
+    }
+  },
+  "required": [
+    "nombre",
+    "resumen"
+  ]
+}

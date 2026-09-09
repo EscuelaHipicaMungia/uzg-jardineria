@@ -1,0 +1,23 @@
+{
+  "name": "SectionVisibility",
+  "type": "object",
+  "properties": {
+    "section_key": {
+      "type": "string",
+      "description": "Unique key identifying the section"
+    },
+    "label": {
+      "type": "string",
+      "description": "Human-readable section name"
+    },
+    "visible": {
+      "type": "boolean",
+      "description": "Whether the section is visible on the website",
+      "default": true
+    }
+  },
+  "required": [
+    "section_key",
+    "visible"
+  ]
+}

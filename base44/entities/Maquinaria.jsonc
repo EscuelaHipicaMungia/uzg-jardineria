@@ -1,0 +1,21 @@
+{
+  "name": "Maquinaria",
+  "type": "object",
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "description": "Nombre de la maquinaria"
+    },
+    "foto": {
+      "type": "string",
+      "description": "URL de la foto de la maquinaria"
+    },
+    "orden": {
+      "type": "number",
+      "description": "Orden de aparici\u00f3n en el carrusel"
+    }
+  },
+  "required": [
+    "nombre"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "DocumentoPDF",
+  "type": "object",
+  "properties": {
+    "titulo": {
+      "type": "string",
+      "description": "T\u00edtulo del documento"
+    },
+    "descripcion": {
+      "type": "string",
+      "description": "Descripci\u00f3n breve del documento"
+    },
+    "url": {
+      "type": "string",
+      "description": "URL del PDF"
+    },
+    "orden": {
+      "type": "number",
+      "description": "Orden de aparici\u00f3n"
+    }
+  },
+  "required": [
+    "titulo",
+    "url"
+  ]
+}

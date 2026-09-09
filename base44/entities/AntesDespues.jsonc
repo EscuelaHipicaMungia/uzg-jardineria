@@ -1,0 +1,26 @@
+{
+  "name": "AntesDepues",
+  "type": "object",
+  "properties": {
+    "titulo": {
+      "type": "string",
+      "description": "T\u00edtulo descriptivo del trabajo"
+    },
+    "foto_antes": {
+      "type": "string",
+      "description": "URL de la foto antes del trabajo"
+    },
+    "foto_despues": {
+      "type": "string",
+      "description": "URL de la foto despu\u00e9s del trabajo"
+    },
+    "orden": {
+      "type": "number",
+      "description": "Orden de aparici\u00f3n"
+    }
+  },
+  "required": [
+    "foto_antes",
+    "foto_despues"
+  ]
+}

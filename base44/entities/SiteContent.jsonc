@@ -1,0 +1,37 @@
+{
+  "name": "SiteContent",
+  "type": "object",
+  "properties": {
+    "key": {
+      "type": "string",
+      "description": "Unique identifier for the content block"
+    },
+    "value": {
+      "type": "string",
+      "description": "The content value (text, color hex, or image URL)"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "text",
+        "color",
+        "image",
+        "textarea"
+      ],
+      "description": "Type of content"
+    },
+    "section": {
+      "type": "string",
+      "description": "Which section this belongs to"
+    },
+    "label": {
+      "type": "string",
+      "description": "Human-readable label for this field"
+    }
+  },
+  "required": [
+    "key",
+    "value",
+    "type"
+  ]
+}

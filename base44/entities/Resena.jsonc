@@ -1,0 +1,26 @@
+{
+  "name": "Resena",
+  "type": "object",
+  "properties": {
+    "nombre": {
+      "type": "string",
+      "description": "Nombre del cliente"
+    },
+    "localidad": {
+      "type": "string",
+      "description": "Localidad del cliente"
+    },
+    "texto": {
+      "type": "string",
+      "description": "Texto de la rese\u00f1a"
+    },
+    "estrellas": {
+      "type": "number",
+      "description": "Valoraci\u00f3n del 1 al 5"
+    }
+  },
+  "required": [
+    "nombre",
+    "texto"
+  ]
+}

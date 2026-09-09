@@ -1,0 +1,21 @@
+{
+  "name": "FotoGaleria",
+  "type": "object",
+  "properties": {
+    "url": {
+      "type": "string",
+      "description": "URL de la foto"
+    },
+    "titulo": {
+      "type": "string",
+      "description": "T\u00edtulo o descripci\u00f3n breve de la foto"
+    },
+    "orden": {
+      "type": "number",
+      "description": "Orden de aparici\u00f3n en la galer\u00eda"
+    }
+  },
+  "required": [
+    "url"
+  ]
+}

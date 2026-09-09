@@ -1,0 +1,22 @@
+{
+  "name": "VideoYoutube",
+  "type": "object",
+  "properties": {
+    "titulo": {
+      "type": "string",
+      "description": "T\u00edtulo del v\u00eddeo"
+    },
+    "url": {
+      "type": "string",
+      "description": "URL del v\u00eddeo de YouTube"
+    },
+    "orden": {
+      "type": "number",
+      "description": "Orden de aparici\u00f3n"
+    }
+  },
+  "required": [
+    "titulo",
+    "url"
+  ]
+}
