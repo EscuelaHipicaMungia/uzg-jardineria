@@ -25,11 +25,17 @@ export default function Home() {
   const [visibility, setVisibility] = useState({});
 
   useEffect(() => {
-    base44.entities.SectionVisibility.list().then(items => {
-      const map = {};
-      items.forEach(i => { map[i.section_key] = i.visible !== false; });
-      setVisibility(map);
-    });
+    base44.entities.SectionVisibility.list()
+      .then(items => {
+        const map = {};
+        if (Array.isArray(items)) {
+          items.forEach(i => { map[i.section_key] = i.visible !== false; });
+        }
+        setVisibility(map);
+      })
+      .catch(err => {
+        console.error("Error cargando la visibilidad de secciones:", err);
+      });
   }, []);
 
   const isVisible = (key) => visibility[key] !== false;
@@ -42,11 +48,17 @@ export default function Home() {
   const handleAdminClose = () => {
     setShowAdminPanel(false);
     // Refresh visibility after admin changes
-    base44.entities.SectionVisibility.list().then(items => {
-      const map = {};
-      items.forEach(i => { map[i.section_key] = i.visible !== false; });
-      setVisibility(map);
-    });
+    base44.entities.SectionVisibility.list()
+      .then(items => {
+        const map = {};
+        if (Array.isArray(items)) {
+          items.forEach(i => { map[i.section_key] = i.visible !== false; });
+        }
+        setVisibility(map);
+      })
+      .catch(err => {
+        console.error("Error actualizando visibilidad:", err);
+      });
   };
 
   return (
