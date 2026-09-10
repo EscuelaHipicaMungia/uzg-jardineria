@@ -22,17 +22,45 @@ import AdminPanel from "../components/admin/AdminPanel";
 export default function Home() {
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showAdminPanel, setShowAdminPanel] = useState(false);
-  const [visibility, setVisibility] = useState({});
+  
+  // Estado inicial con TODAS las secciones visibles por defecto
+  const [visibility, setVisibility] = useState({
+    hero: true,
+    pain_points: true,
+    trust_badges: true,
+    solution: true,
+    sobre_mi: true,
+    maquinaria: true,
+    antes_despues: true,
+    testimonios: true,
+    galeria: true,
+    videos_youtube: true,
+    documentos_pdf: true,
+    cta_final: true,
+  });
+
+  const loadVisibility = () => {
+    if (!base44?.entities?.SectionVisibility) return;
+    
+    base44.entities.SectionVisibility.list()
+      .then(items => {
+        if (Array.isArray(items) && items.length > 0) {
+          const map = {};
+          items.forEach(i => { map[i.section_key] = i.visible !== false; });
+          setVisibility(prev => ({ ...prev, ...map }));
+        }
+      })
+      .catch(err => {
+        console.warn("No se pudo cargar la visibilidad desde la API, usando valores por defecto:", err);
+      });
+  };
 
   useEffect(() => {
-    base44.entities.SectionVisibility.list().then(items => {
-      const map = {};
-      items.forEach(i => { map[i.section_key] = i.visible !== false; });
-      setVisibility(map);
-    });
+    loadVisibility();
   }, []);
 
-const isVisible = (key) => visibility[key] === true || visibility[key] === undefined;
+  const isVisible = (key) => visibility[key] !== false;
+
   const handleAdminSuccess = () => {
     setShowPasswordModal(false);
     setShowAdminPanel(true);
@@ -40,12 +68,7 @@ const isVisible = (key) => visibility[key] === true || visibility[key] === undef
 
   const handleAdminClose = () => {
     setShowAdminPanel(false);
-    // Refresh visibility after admin changes
-    base44.entities.SectionVisibility.list().then(items => {
-      const map = {};
-      items.forEach(i => { map[i.section_key] = i.visible !== false; });
-      setVisibility(map);
-    });
+    loadVisibility();
   };
 
   return (
