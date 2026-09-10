@@ -32,8 +32,7 @@ export default function Home() {
     });
   }, []);
 
-  const isVisible = (key) => visibility[key] !== false;
-
+const isVisible = (key) => visibility[key] === true || visibility[key] === undefined;
   const handleAdminSuccess = () => {
     setShowPasswordModal(false);
     setShowAdminPanel(true);
